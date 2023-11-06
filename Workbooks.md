@@ -5,15 +5,16 @@
 
 ### What is a `callback function`?
 -> Answer: A callback function is a function that is passed as an argument to another function and is executed at a later point in time or in response to an event.
--> Example: <br>
+-> Example: 
+
 ```
 function calculateSum(a, b, callback) {
-  const sum = a + b;
-  callback(sum);
+  const sum = a + b;
+  callback(sum);
 }
 
 function displayResult(result) {
-  console.log("The result is:", result);
+  console.log("The result is:", result);
 }
 
 calculateSum(3, 5, displayResult);
@@ -23,49 +24,56 @@ calculateSum(3, 5, displayResult);
 JavaScript is an implementation of ECMAScript. It is the most popular and widely used implementation of the ECMAScript standard. Other implementations of ECMAScript include TypeScript, JScript, and ActionScript.
 In essence, ECMAScript is the language specification, while JavaScript is the most prominent implementation of that specification.
 
-### What is the difference between `let` & `var` ?
--> Answer: The main difference between let and var is that let has block scope, while var has function scope. This means that a variable declared with let is only accessible    within the block of code where it is defined, while a variable declared with var is accessible throughout the entire function in which it is defined.
+<div style="page-break-after: always; break-after: page;"></div>
 
--> Example: <br>
+### What is the difference between `let` & `var` ?
+-> Answer: The main difference between let and var is that let has block scope, while var has function scope. This means that a variable declared with let is only accessible    within the block of code where it is defined, while a variable declared with var is accessible throughout the entire function in which it is defined.
+
+-> Example: 
+
 ```
 function exampleFunction() {
-  var x = 1;
-  let y = 2;
+  var x = 1;
+  let y = 2;
 
-  if (true) {
-    var x = 3; // This modifies the value of the outer 'x'
-    let y = 4; // This creates a new 'y' variable with block scope
+  if (true) {
+    var x = 3; // This modifies the value of the outer 'x'
+    let y = 4; // This creates a new 'y' variable with block scope
 
-    console.log(x); // Output: 3
-    console.log(y); // Output: 4
-  }
+    console.log(x); // Output: 3
+    console.log(y); // Output: 4
+  }
 
-  console.log(x); // Output: 3 (value modified in the block)
-  console.log(y); // Output: 2 (value remains unchanged outside the block)
+  console.log(x); // Output: 3 (value modified in the block)
+  console.log(y); // Output: 2 (value remains unchanged outside the block)
 }
 ```
 ### Write an example where using the `var` declaration instead of the `let` could create a hard to debug code.
--> Example: <br>
+-> Example: 
+
 ```
 function exampleFunction() {
-  for (var i = 0; i < 5; i++) {
-    setTimeout(function() {
-      console.log(i); // Logging the value of 'i'
-    }, 1000);
-  }
+  for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+      console.log(i); // Logging the value of 'i'
+    }, 1000);
+  }
 }
 ```
 
--> Answer: With var, the variable has function scope and is hoisted to the top of the function. This means that there is only a single i variable shared across all iterations   of the loop.
+-> Answer: With var, the variable has function scope and is hoisted to the top of the function. This means that there is only a single i variable shared across all iterations   of the loop.
 As a result, when the setTimeout callbacks execute after the loop has finished, they all reference the same i variable, which by that time has reached the value of 5. As a consequence, all the logged values will be 5, regardless of the iteration.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### Give a practical example where you would use the `reduce` function in javascript.
--> Example: <br>
+-> Example: 
+
 ```
 const numbers = [5, 10, 15, 20];
 
 const sum = numbers.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
+  return accumulator + currentValue;
 }, 0);
 
 console.log(sum); // Output: 50
@@ -73,12 +81,13 @@ console.log(sum); // Output: 50
 -> Answer: The reduce function iterates over each element in the numbers array and accumulates the sum of all the values. The initial value for the accumulator is set to 0. At each iteration, the callback function adds the current value to the accumulator, and the updated accumulator is passed to the next iteration. Finally, the reduce function returns the accumulated sum.
 
 ### Give a practical example where you would use the `map` function in javascript.
--> Example: <br>
+-> Example: 
+
 ```
 const products = [
-  { id: 1, name: 'Apple', price: 0.5 },
-  { id: 2, name: 'Banana', price: 0.3 },
-  { id: 3, name: 'Orange', price: 0.6 },
+  { id: 1, name: 'Apple', price: 0.5 },
+  { id: 2, name: 'Banana', price: 0.3 },
+  { id: 3, name: 'Orange', price: 0.6 },
 ];
 
 const productNames = products.map((product) => product.name);
@@ -87,8 +96,11 @@ console.log(productNames); // Output: ["Apple", "Banana", "Orange"]
 ```
 -> Answer: By using map, you can transform the original array of objects into a new array containing only the desired property (name in this case). This can be useful when you need to extract specific data from an array or perform some kind of transformation on each element without modifying the original array.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### Give a practical example where you would use the `filter` function in javascript.
--> Example: <br>
+-> Example: 
+
 ```
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -97,6 +109,8 @@ const oddNumbers = numbers.filter(number => number % 2 !== 0);
 console.log(oddNumbers); //Output: [1,3,5,7,9]
 ```
 -> Answer: In the callback function number => number % 2 !== 0, we check if the remainder of dividing each number by 2 is not equal to 0. If the remainder is not 0, it means the number is odd, and the callback function returns true for that number. As a result, the filter function creates a new array (oddNumbers) containing only the odd numbers from the original array.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 
 ## Web basics
@@ -116,14 +130,16 @@ Communication occurs over a network, like the internet, and protocols like HTTP 
 ### What is the difference between `synchronous` and `asynchronous` execution?
 -> Answer: <br>
 `Synchronous`: Synchronous execution refers to a mode of operation where tasks are performed sequentially and in order. 
-  In this approach, a task must wait for the completion of the previous task before it can begin. 
-  The execution flow is blocked until the current task finishes, and then the next task starts. 
-  Synchronous execution ensures that tasks are carried out in a predictable and orderly manner.
+  In this approach, a task must wait for the completion of the previous task before it can begin. 
+  The execution flow is blocked until the current task finishes, and then the next task starts. 
+  Synchronous execution ensures that tasks are carried out in a predictable and orderly manner.
 
 `Asynchronous`: Asynchronous execution allows tasks to run independently and concurrently. 
-   In this mode, a task can start execution without waiting for the completion of the previous task. 
-   The execution flow is not blocked, and tasks can run in parallel or overlap. 
-   Asynchronous execution is commonly used in scenarios where tasks can take variable time to complete, or when tasks can run concurrently without dependencies.
+   In this mode, a task can start execution without waiting for the completion of the previous task. 
+   The execution flow is not blocked, and tasks can run in parallel or overlap. 
+   Asynchronous execution is commonly used in scenarios where tasks can take variable time to complete, or when tasks can run concurrently without dependencies.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ### What is `npm`? Why is it useful?
 -> Answer: `npm` is a powerful package manager for JavaScript projects, offering efficient package and dependency management, version control, and access to a wide range of community-driven packages. 
@@ -134,7 +150,7 @@ It greatly simplifies the development process and enhances productivity for Java
  Separating these dependencies allows for a more streamlined and efficient deployment process, as production environments do not need to carry the additional overhead of development-related dependencies.
 
 ### What would be the impact of javascript `fetch` if it was not asyncronous ?
--> Answer:  If fetch were synchronous, the entire execution of the code would be paused until the network request is complete. 
+-> Answer:  If fetch were synchronous, the entire execution of the code would be paused until the network request is complete. 
  This blocking behavior would lead to unresponsive user interfaces, making the application appear frozen or slow.
  Without asynchronicity, each network request would block the execution of other code, including event handling and UI updates.
 
@@ -142,12 +158,16 @@ It greatly simplifies the development process and enhances productivity for Java
 -> Answer: Postman empowers developers by simplifying API testing, enhancing collaboration, automating workflows, facilitating documentation, offering monitoring and debugging capabilities, and integrating with other development tools. 
 These benefits contribute to improved productivity, efficiency, and the overall quality of API development.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### List the `parts of the URL`.
--> Example: <br>
+-> Example:  
+
 ```
  URL: https://www.example.com/path/to/resource?param1=value1&param2=value2#section3
 ```
--> Answer: <br>
+-> Answer: 
+
 ```
  Scheme/Protocol: "https://"
  Host: "www.example.com"
@@ -169,8 +189,11 @@ q=apple: The parameter key is "q" and the value is "apple".
 category=fruits: The parameter key is "category" and the value is "fruits".
 page=1: The parameter key is "page" and the value is "1". 
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What kind of `HTTP status codes` do you know?
--> Answer: <br>
+-> Answer: 
+
 ```
 Informational (1xx):
 100 Continue
@@ -197,8 +220,11 @@ Server Error (5xx):
 502 Bad Gateway
 503 Service Unavailable
 ```
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### How does an `HTTP Request` look like? What are the most relevant `HTTP header fields`?
--> Example: <br>
+
+-> Example: 
 ```
  GET /example HTTP/1.1
  Host: www.example.com
@@ -207,7 +233,7 @@ Server Error (5xx):
  Accept-Language: en-US,en;q=0.9
  Cookie: session_id=123456789
 ```
--> Answer: <br>
+-> Answer: 
 ``` 
 Request Line:
 HTTP method: Specifies the action to be performed on the requested resource, such as GET, POST, PUT, DELETE, etc.
@@ -216,19 +242,22 @@ HTTP version: The version of the HTTP protocol being used, such as HTTP/1.1.
  
 Headers:
  Host: Specifies the target host or domain name.
- User-Agent: Identifies the client making the request (e.g., the browser or application).
- Accept: Indicates the media types (MIME types) acceptable in the response.
- Content-Type: Specifies the media type of the request's body (if present).
- Authorization: Provides credentials or authentication information for the request.
- Cookie: Contains cookies associated with the request.
- Cache-Control: Defines caching directives for the request/response.
- Referer: Specifies the URL of the referring page.
- Accept-Language: Specifies the preferred language for the response.
+ User-Agent: Identifies the client making the request (e.g., the browser or application).
+ Accept: Indicates the media types (MIME types) acceptable in the response.
+ Content-Type: Specifies the media type of the request's body (if present).
+ Authorization: Provides credentials or authentication information for the request.
+ Cookie: Contains cookies associated with the request.
+ Cache-Control: Defines caching directives for the request/response.
+ Referer: Specifies the URL of the referring page.
+ Accept-Language: Specifies the preferred language for the response.
 
 Message Body (Optional):
 Some HTTP requests, like POST or PUT, may include a message body that contains data being sent to the server.
 ```
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### How does an HTTP Response look like? What are the most relevant HTTP header fields?
+
 -> Example: </br>
 ```
 HTTP/1.1 200 OK </br>
@@ -240,15 +269,15 @@ Server: Apache/2.4.7 (Ubuntu)
 ```
 -> Answer: 
 ```
- Status Line: The status line is the first line of an HTTP response and contains the following elements:
+ Status Line: The status line is the first line of an HTTP response and contains the following elements:
 
  HTTP version: The version of the HTTP protocol being used, such as HTTP/1.1.
 
  Status code: A three-digit numeric code that indicates the status of the response. 
- Common status codes include 200 (OK), 404 (Not Found), 500 (Internal Server Error), etc.
+ Common status codes include 200 (OK), 404 (Not Found), 500 (Internal Server Error), etc.
 
  Reason phrase: A brief textual description associated with the status code.
- Example: HTTP/1.1 200 OK
+ Example: HTTP/1.1 200 OK
 
 Headers: HTTP headers provide additional information about the response and can include various    fields. 
 Some of the most relevant HTTP header fields in a response are:
@@ -264,9 +293,11 @@ Similar to HTTP requests, there are many other header fields available for diffe
 Message Body (Optional): The message body in an HTTP response contains the actual content being sent by the server.
 ```
 ### Why should you ignore the `node_modules` folder in `.gitignore` ?
--> Answer:  Ignoring the node_modules folder in the .gitignore file helps keep the version control repository lean, improves performance, simplifies dependency management, ensures portability, and maintains a cleaner project structure.
+-> Answer:  Ignoring the node_modules folder in the .gitignore file helps keep the version control repository lean, improves performance, simplifies dependency management, ensures portability, and maintains a cleaner project structure.
 
 
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## Rest API: Serve and Fetch
 
@@ -274,7 +305,7 @@ Message Body (Optional): The message body in an HTTP response contains the actua
 -> Answer: Developers are recommended to use the HTTP methods GET, PUT, and DELETE for specific reasons related to the principles and conventions of the HTTP protocol and RESTful API design.
 
 ### How does a `POST` request look like when it is made from a web browser (on the front end written) ?
--> Example: <br>
+-> Example: 
 ```
 POST /endpoint HTTP/1.1
 Host: example.com
@@ -290,7 +321,7 @@ Headers: The headers provide additional information about the request. In this e
 Host: It specifies the hostname of the server.
 
 Content-Type: It indicates the type of data being sent in the request body. 
-   In this case, the content type is set to application/json, indicating that the request body contains JSON data.
+   In this case, the content type is set to application/json, indicating that the request body contains JSON data.
 
 Content-Length: It specifies the length of the request body in bytes.
 
@@ -301,7 +332,10 @@ Request Body: It contains the data being sent with the request. In this example,
 API acts as a bridge between different software applications, enabling them to exchange information and perform actions on each other's behalf. 
 It provides a standardized way for developers to access and use the functionalities of a software system or service without needing to understand the underlying implementation details.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What is `REST API`?
+
 -> Answer: REST API stands for **Representational State Transfer Application Programming Interface**. 
 In a REST API, resources are identified by unique URLs (Uniform Resource Locators), and the operations on these resources are performed using standard HTTP methods like GET, POST, PUT, PATCH, and DELETE. 
 REST APIs typically use the JSON (JavaScript Object Notation) format for data exchange, although other formats like XML can also be used.
@@ -318,18 +352,16 @@ It allows developers to make changes and updates to an API without breaking comp
 By versioning the API, developers can introduce new features, modify existing functionality, or fix issues while ensuring that existing integrations continue to work as expected.
 
 ### Give 3 examples of `HTTP response status codes` ? Explain what each number means.
--> Answer: <br>
+-> Answer: 
 ```
 200 OK:
 The status code 200 OK indicates a successful HTTP request. 
 It means that the server has successfully processed the request, and the requested resource or operation has been completed. 
 This is the most common status code for a successful response.
-
 404 Not Found:
 The status code 404 Not Found indicates that the server could not find the requested resource. 
 It means that the URL or endpoint provided in the request does not correspond to a valid resource on the server. 
 This status code is often used when a page or resource is removed or does not exist.
-
 500 Internal Server Error:
 The status code 500 Internal Server Error is a generic server error response. 
 It indicates that there was an unexpected condition or error on the server that prevented it from fulfilling the request. 
@@ -355,9 +387,9 @@ This status code is typically used when the server encounters an error that it c
 -> Example: 
 ```
 const originalObj = {
-  name: "John",
-  age: 30,
-  hobbies: ["reading", "swimming"]
+  name: "John",
+  age: 30,
+  hobbies: ["reading", "swimming"]
 };
 
 const shallowCopy = Object.assign({}, originalObj);
@@ -376,10 +408,10 @@ Instead, the properties of the new object are references to the same objects in 
 ### What is a `callback function`? Tell some examples of its usage.
 -> Answer: A `callback function` is a function that is passed as an argument to another function and is invoked or called within that function.
 
--> Example: <br>
+-> Example: 
 ```
 document.getElementById('myButton').addEventListener('click', function() {
-  console.log('Button clicked!');
+  console.log('Button clicked!');
 });
 ```
 ### What is `object destructuring` in javascript?
@@ -388,15 +420,15 @@ document.getElementById('myButton').addEventListener('click', function() {
 -> Example: 
 ```
 const person = {
-  name: 'John',
-  age: 30
+  name: 'John',
+  age: 30
 };
 
 const { name, age, city = 'Unknown' } = person;
 
-console.log(name);  // Output: John
-console.log(age);   // Output: 30
-console.log(city);  // Output: Unknown
+console.log(name);  // Output: John
+console.log(age);   // Output: 30
+console.log(city);  // Output: Unknown
 ```
 ### What is `array destructuring` in javascript?
 -> Answer: Array destructuring is a feature in JavaScript that allows you to extract elements from an array and assign them to individual variables.
@@ -408,9 +440,9 @@ const numbers = [1, 2, 3, 4, 5];
 // Destructuring with rest syntax
 const [a, b, ...rest] = numbers;
 
-console.log(a);     // Output: 1
-console.log(b);     // Output: 2
-console.log(rest);  // Output: [3, 4, 5]
+console.log(a);     // Output: 1
+console.log(b);     // Output: 2
+console.log(rest);  // Output: [3, 4, 5]
 ```
 ### What is the spread operator in `js` ?
 -> Answer: The spread operator is a syntax introduced in JavaScript that allows the expansion of an iterable (like an array or a string) into individual elements. 
@@ -438,7 +470,7 @@ It is the counterpart to the import keyword used in ECMAScript modules.
 -> Answer: Template literals are enclosed by backticks ( ) instead of single or double quotes used for regular strings. 
 Within the template literal, you can embed placeholders ${expression} that are replaced with the evaluated value of the expression.
 
--> Example:  <br>
+-> Example:  
 ```
 const name = 'John';
 const age = 30;
@@ -458,8 +490,7 @@ console.log(message);
 These benefits contribute to better code organization, productivity, and maintainability, making development more efficient and enjoyable for developers.
 
 ### What is the difference between `Element` and `Component`?
--> Answer: An `element` represents a specific instance of a UI `component` and describes what should be rendered, 
-while a `component` is a reusable and self-contained unit of code that encapsulates the logic and rendering of a part of the user interface. 
+-> Answer: An `element` represents a specific instance of a UI `component` and describes what should be rendered, while a `component` is a reusable and self-contained unit of code that encapsulates the logic and rendering of a part of the user interface. 
 `Elements` are the result of rendering `components`, and `components` are the building blocks that define the structure and behavior of the UI.
 
 ### How do you pass values between components in `react`?
@@ -481,27 +512,28 @@ The parent component can define a callback function and pass it as a prop to the
 The child component can then invoke this callback function and pass data as an argument to communicate with the parent.
 
 ### Write the code to create in JSX an HTML DIV element that has the innerText the contents of the variable `let name = 'Andrew'`
--> Answer: <br>
+-> Answer: 
 ```
 let name = 'Andrew';
 
 const element = <div>{name}</div>;
 ```
 ### Write the code to create in JSX an unordered list from the array `let names = ["Mathew", "John", "Maverik"]`
--> Answer:<br>
+-> Answer:
 ```
 let names = ["Mathew", "John", "Maverik"];
 
 const list = (
-  <ul>
-    {names.map((name, index) => (
-      <li key={index}>{name}</li>
-    ))}
-  </ul>
+  <ul>
+    {names.map((name, index) => (
+      <li key={index}>{name}</li>
+    ))}
+  </ul>
 );
 ```
 ### Write the code to set the background color red of a div in JSX.
--> Answer:<br>
+-> Answer:
+
 ```
 const element = <div style={{background-color: 'red'}}>Hello, world!</div>;
 ```
@@ -511,32 +543,36 @@ const element = <div style={{background-color: 'red'}}>Hello, world!</div>;
 -> Answer: `The Virtual DOM` serves as an optimization technique to enhance the performance of web applications by minimizing the direct manipulation of the `Real DOM` and reducing unnecessary updates.
 
 ### When adding an item to an array, why is it necessary to pass a new array to the `useState` hook ?
--> Answer:  In order to properly update the state and trigger a re-render of the component. 
+-> Answer:  In order to properly update the state and trigger a re-render of the component. 
  This is because React uses referential equality to determine if the state has changed and needs to be updated.
 
--> Example: <br>
+-> Example: 
+
 ```
 // Incorrect way (mutating the existing array)
 const [items, setItems] = useState([]);
 
 const addItem = (item) => {
-  items.push(item); // Modifying the existing array directly
-  setItems(items); // This would not trigger a re-render
+  items.push(item); // Modifying the existing array directly
+  setItems(items); // This would not trigger a re-render
 };
 
 // Correct way (creating a new array)
 const [items, setItems] = useState([]);
 
 const addItem = (item) => {
-  const newItems = [...items, item]; // Creating a new array with the added item
-  setItems(newItems); // This triggers a re-render
+  const newItems = [...items, item]; // Creating a new array with the added item
+  setItems(newItems); // This triggers a re-render
 };
 ```
 ### Describe what techniques or tools you use to debug a react app.
 -> Answer: Console.log: The simplest and most widely used debugging technique is adding console.log statements at various points in your code to output values or track the flow of execution. 
 You can log state, props, function calls, or any other relevant information to the console.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What is the difference between a react `class` component & a `functional` component ?
+
 -> Answer: `Class components` are created using JavaScript classes and have their own state, lifecycle methods, and instance (this). 
 They are used for managing state and using lifecycle methods.
 
@@ -554,61 +590,63 @@ It replaces the this.state and this.setState functionality in class components.
 With useState, you can declare and update state variables within the function body.
 
 `useContext`: This hook provides access to the value of a React context within a functional component. 
- It allows you to consume context values without needing to use a Context.Consumer component or wrapping your component in a Context.Provider.
+ It allows you to consume context values without needing to use a Context.Consumer component or wrapping your component in a Context.Provider.
 
 ### What is conditional rendering in `react` ? Give an example.
--> Answer:  It allows you to dynamically control what is displayed in your UI based on the state of your application.
+-> Answer:  It allows you to dynamically control what is displayed in your UI based on the state of your application.
 
--> Example:  <br>
+-> Example:  
+
 ```
 import React from 'react';
 
 function ExampleComponent() {
-  const isLoggedIn = false;
+  const isLoggedIn = false;
 
-  return (
-    <div>
-      {isLoggedIn ? (
-        <h1>Welcome, User!</h1>
-      ) : (
-        <h1>Please log in to continue.</h1>
-      )}
-    </div>
-  );
+  return (
+    <div>
+      {isLoggedIn ? (
+        <h1>Welcome, User!</h1>
+      ) : (
+        <h1>Please log in to continue.</h1>
+      )}
+    </div>
+  );
 }
 ```
 ### Write the code that prints to the console `component destroyed` when the component it is part of is removed from the DOM tree.
--> Answer:<br>
+-> Answer:
+
 ```
 import React, { useEffect } from 'react';
 
 function ExampleComponent() {
-  useEffect(() => {
-    return () => {
-      console.log('component destroyed');
-    };
-  }, []);
+  useEffect(() => {
+    return () => {
+      console.log('component destroyed');
+    };
+  }, []);
 
-  return (
-    // Component's JSX content
-    <div>
-      {/* Content of the component */}
-    </div>
-  );
+  return (
+    // Component's JSX content
+    <div>
+      {/* Content of the component */}
+    </div>
+  );
 }
 ```
 ### Why is there an infinite loop in this code
 ```
 function App() {
-  const [count, setCount] = useState(0); //initial value of this 
-  useEffect(() => {
-    setCount((count) => count + 1); //increment this Hook
-  }); //no dependency array.
-  return (
-    <div className="App">
-      <p> value of count: {count} </p>
-    </div>
-  );
+  const [count, setCount] = useState(0); //initial value of this 
+  useEffect(() => {
+    setCount((count) => count + 1); //increment this Hook
+  }); //no dependency array.
+  return (
+    <div className="App">
+      <p> value of count: {count} </p>
+    </div>
+  );
 }
 ```
 -> Answer: When a dependency array is not specified, the effect runs after every render of the component.
@@ -616,26 +654,26 @@ setCount((count) => count + 1). This update triggers a re-render of the componen
 
 ### Why is there an infinite loop in this code
 ```
-  async function App() {
-  const [count, setCount] = useState("");
-  setCount(count + 1);
-  return (
-    <div className="App">
-      <p> value of count: {count} </p>
-    </div>
-  );
+  async function App() {
+  const [count, setCount] = useState("");
+  setCount(count + 1);
+  return (
+    <div className="App">
+      <p> value of count: {count} </p>
+    </div>
+  );
 }
 ```
 -> Answer: In React, state updates using useState should only be performed inside functions or callbacks that are triggered by user interactions, events, or lifecycle methods.
 Directly updating the state outside these designated places can lead to unexpected behavior, including infinite loops.
 
-
+<div style="page-break-after: always; break-after: page;"></div>
 
 
 ## Mongo & mongoose
 
 ### What is a `database schema` ?
--> Answer:  It defines the structure of documents within a collection. 
+-> Answer:  It defines the structure of documents within a collection. 
  MongoDB's flexible schema allows for dynamic data models, meaning each document within a collection can have different fields and structures.
 
 ### Why is the `id` unique in a database ?
@@ -646,99 +684,85 @@ Directly updating the state outside these designated places can lead to unexpect
 However, it comes with limitations such as the loss of Mongoose-specific features, change tracking, schema validation, and population capabilities.
 
 ### Write the code to store the object `{name: "Andrew", age: 10}` to a mongo database. You can ignore the part of connection parameters.
--> Answer: <br>
 ```
 const mongoose = require('mongoose');
-
 // Define the schema for the object
 const exampleSchema = new mongoose.Schema({
-  name: String,
-  age: Number
+  name: String,
+  age: Number
 });
-
 // Create a model based on the schema
 const ExampleModel = mongoose.model('Example', exampleSchema);
-
 // Connect to MongoDB (Assuming you have already set up the connection)
 
 // Create a new instance of the model with the data
 const exampleObject = new ExampleModel({
-  name: "Andrew",
-  age: 10
+  name: "Andrew",
+  age: 10
 });
 
 // Save the object to the database
 exampleObject.save()
-  .then(savedObject => {
-    console.log('Object saved to the database:', savedObject);
-  })
-  .catch(error => {
-    console.error('Error saving object:', error);
-  });
+  .then(savedObject => {
+    console.log('Object saved to the database:', savedObject);
+  })
+  .catch(error => {
+    console.error('Error saving object:', error);
+  });
 ```
 ### Write the code to `delete` from a mongo database all employees that are over 18 years. The scheme for an employee is `{name: string, age: int}`. You can ignore the part of connection parameters.
--> Answer:<br>
 ```
 const mongoose = require('mongoose');
-
 // Define the schema for the employee
 const employeeSchema = new mongoose.Schema({
-  name: String,
-  age: Number
+  name: String,
+  age: Number
 });
-
 // Create a model based on the schema
 const EmployeeModel = mongoose.model('Employee', employeeSchema);
-
 // Connect to MongoDB (Assuming you have already set up the connection)
-
 // Delete employees over 18 years
 EmployeeModel.deleteMany({ age: { $gt: 18 } })
-  .then(deletedEmployees => {
-    console.log('Deleted employees:', deletedEmployees);
-  })
-  .catch(error => {
-    console.error('Error deleting employees:', error);
-  });
-
+  .then(deletedEmployees => {
+    console.log('Deleted employees:', deletedEmployees);
+  })
+  .catch(error => {
+    console.error('Error deleting employees:', error);
+  });
 //The { age: { $gt: 18 } } query condition selects all employees with an age greater than 18.
 ```
 ### Write the code to `display in the console` from a mongo database the employees who are over 18 years. The scheme for an employee is `{name: string, age: int}`. You can ignore the part of connection parameters.
--> Answer: <br>
 ```
 const mongoose = require('mongoose');
-
 // Define the schema for the employee
 const employeeSchema = new mongoose.Schema({
-  name: String,
-  age: Number
+  name: String,
+  age: Number
 });
-
 // Create a model based on the schema
 const EmployeeModel = mongoose.model('Employee', employeeSchema);
-
 // Connect to MongoDB (Assuming you have already set up the connection)
-
 // Find employees over 18 years
 EmployeeModel.find({ age: { $gt: 18 } })
-  .then(employees => {
-    employees.forEach(employee => {
-      console.log('Employee:', employee);
-    });
-  })
-  .catch(error => {
-    console.error('Error retrieving employees:', error);
-  });
+  .then(employees => {
+    employees.forEach(employee => {
+      console.log('Employee:', employee);
+    });
+  })
+  .catch(error => {
+    console.error('Error retrieving employees:', error);
+  });
 ```
 ### Write the code to `update` from a mongo database the employees with name='John' and set the new age to 8. The scheme for an employee is `{name: string, age: int}`. You can ignore the part of connection parameters.
--> Answer: <br>
+-> Answer: 
+
 ```
 const mongoose = require('mongoose');
 
 // Define the schema for the employee
 const employeeSchema = new mongoose.Schema({
-  name: String,
-  age: Number
+  name: String,
+  age: Number
 });
 
 // Create a model based on the schema
@@ -748,13 +772,15 @@ const EmployeeModel = mongoose.model('Employee', employeeSchema);
 
 // Update employees with name='John' to new age 8
 EmployeeModel.updateMany({ name: 'John' }, { age: 8 })
-  .then(updatedEmployees => {
-    console.log('Updated employees:', updatedEmployees);
-  })
-  .catch(error => {
-    console.error('Error updating employees:', error);
-  });
+  .then(updatedEmployees => {
+    console.log('Updated employees:', updatedEmployees);
+  })
+  .catch(error => {
+    console.error('Error updating employees:', error);
+  });
 ```
+<div style="page-break-after: always; break-after: page;"></div>
+
 ## Mern stack
 
 ### What does `MERN` stand for in the context of web development ?
@@ -771,7 +797,7 @@ EmployeeModel.updateMany({ name: 'John' }, { age: 8 })
 React Router is a popular library used for implementing routing functionality in React applications.
 
 ### What is routing in the context of an `express` app ?
--> Answer:  Routing refers to the process of defining routes and handling HTTP requests that are received by the server. 
+-> Answer:  Routing refers to the process of defining routes and handling HTTP requests that are received by the server. 
  Express is a popular web application framework for Node.js that simplifies the creation of server-side applications and APIs.
 
 ### What is `CORS` policy ?
@@ -790,30 +816,30 @@ The choice between them depends on the specific project requirements, design pre
 
 .NET is an `open source development platform` (languages: C#, F#, VB; + libraries) for building different types of apps. 
 Its implementations are .NET Core (Windows, Linux, macOS), .NET Framework (Windows) and Xamarin (mobile) for different platforms.
- 
+
 
 ### Can you describe the difference between `.NET Framework` and `.NET Core`?
 
 Both are used to develop C# (and F#, VB) applications, but `.NET Framework` has been around longer, 
 is maintained by Microsoft and can only be used to develop for Windows.<br> The `.NET Core` (meanwhile named only ".NET"), 
 also developed by Microsoft is a free and open source framework to develop applications for Windows, Linux and macOS.
- 
+
 
 ### What project types do you know in `Visual Studio/Rider`?
 
 `Class Library, Console Application, Desktop Application, Unit Test Project, ASP.NET Core Web App.`
- 
+
 
 ### What is a `solution`?
 
 A solution is a container to organize one or more related code projects. A solution contains a project for each build output (dll, exe, msi).
- 
+
 
 ### What is an `assembly`?
 
 An assembly is a basic building block of a .NET application. It is a file that is automatically generated by 
 the compiler upon successful compilation of every .NET application. It can be a DLL (dynamic link library) or an executable file.
- 
+
 
 ### What is `LINQ` in .NET? How does it work?
 
@@ -821,20 +847,19 @@ LINQ stands for **Language-Integrated Query** which adds native data querying ca
 The operators defined by LINQ are exposed to the user through the **Standard Query Operator API.** 
 The query expressions are similar to SQL statements and can be used to extract and process data from arrays, 
 enumerable classes, XML documents, relational databases.
- 
+
 
 ### What are some commonly used `LINQ methods` that you know?
 
 `Select, Where, SelectMany, Sum, Min, Max, Average, Aggregate, Take, Skip, OfType, Concat, OrderBy, GroupBy, Distinct, Contains, Count.`
- 
+
 
 ### Which .NET class would you use if you need to `generate random numbers`? Explain its usage briefly.
 
-The `System.Random` class to generate pseudorandom numbers. An instance of the Random class has to be created, 
-then its methods can be used to generate random numbers. Creating an instance of Random should not be done inside a method, 
-its especially dangerous within a cycle, because of how the class works. The class uses a seed number in order to 
-generate sequences of random numbers. When two instances are generated with the same seed number, the "random" numbers will be the same.
- 
+The `System.Random` class to generate pseudorandom numbers. An instance of the Random class has to be created, then its methods can be used to generate random numbers. Creating an instance of Random should not be done inside a method, its especially dangerous within a cycle, because of how the class works. 
+
+The class uses a seed number in order to generate sequences of random numbers. When two instances are generated with the same seed number, the "random" numbers will be the same.
+
 
 ```C#
 Random random = new Random();
@@ -847,37 +872,35 @@ double myRandomDouble = random.NextDouble(); // Generates floating point number 
 ### Which .NET classes are used to `read and write files in C#`?
 
 `Classes of the System.IO Namespace, StreamReader and StreamWriter and methods of the File class.`
- 
+
 
 ### Which .NET type is used for `working with dates`? Describe some of the functions related to this type.
 
 The `DateTime` class is used to work with dates. Methods include: Add methods (e.g. AddHours or AddDays), 
-`.Date` to access the date part, 
-`.TimeOfDay` to access the time part, etc.
- 
+`.Date` to access the date part, `.TimeOfDay` to access the time part, etc.
+
 
 ### Which .NET class can be used for `measuring time`?
 
-The `Stopwatch` class can be used to measure elapsed time. Its `Start` method has to be invoked to start it and 
-its `Stop` method to stop it. One of the `Elapsed` methods is used to get the elapsed time.
- 
+The `Stopwatch` class can be used to measure elapsed time. Its `Start` method has to be invoked to start it and its `Stop` method to stop it. One of the `Elapsed` methods is used to get the elapsed time.
+
 
 ### What is `NuGet`?
 
 NuGet is a package manager for .NET to create, share and consume useful .NET libraries. It was introduced in 2010 as NuPack.
- 
+
 
 ### What is the `IEnumerable` interface?
 
 The `IEnumerable` interface allows classes that implement it to use enumeration (iteration) over a collection.
- 
+
 
 ### What does the term _`deferred execution`_ mean? How does it relate to `IEnumerable` and `LINQ`?
 
-In relation to LINQ it means that when assigning a variable using a LINQ query, the query will not be run until the 
-value of the variable is actually required. Its implication is that on each subsequent access of the variable, the 
-evaluation runs again on the latest data. This is called **lazy evaluation**.
- 
+In relation to LINQ it means that when assigning a variable using a LINQ query, the query will not be run until the value of the variable is actually required. 
+
+Its implication is that on each subsequent access of the variable, the evaluation runs again on the latest data. This is called **lazy evaluation**.
+
 
 ### Describe some `collection types` you know.<br>
 
@@ -907,6 +930,8 @@ The `System.String` type implements `IEnumerable` because in the background Syst
 The advantages are that individual characters of a string can be accessed more easily and the string is iterable.
 <br>
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 
 ## Language features
 
@@ -918,7 +943,7 @@ Conditional statements are widely used, they include `if-then-else` statement, w
 If there are a high number of cases, the `switch-case` statement allows to write compact code.<br>
 A loop is yet and other of control statement, including `for`, `while`, `foreach` loops.<br>
 It is possible to exit a loop early with `break` command or to skip parts of code in the loop with the `continue` command.
- 
+
 
 ### What is the difference between a `for` loop and a `foreach` loop?
 
@@ -950,24 +975,26 @@ It can be thought of as a repeating `if` statement.
 
 The `yield` keyword returns elements one element at a time from an enumerator block (for, foreach, while) as an `IEnumerable` collection.<br>
 It uses requires less memory and less code than creating the IEnumerable before the enumerator and filling it in the enumerator, and returning after. 
- 
+
 
 ### How do you manually break out of a loop?
 
 Using the `break` (`yield break`), `return`, `goto`, `throw` keywords.
- 
+
 
 ### What does the `var` keyword mean?
 
 The `var` keyword (stands for variable) and is used as a wildcard to not having to specify exact variable type of the variable.
 With the `var` keyword, the type is implicitly specified. It should be used with a well named variable.
- 
+
 
 ### What is the _primary constructor syntax_?
 
-The primary constructor syntax is a feature supposedly introduced in C# 9.0 that provides a concise way to declare immutable types, like records
-that was also introduced in C# 9.0. The properties of the class are initialized in the constructor without needing to declare them explicitly. <br>
-Examples of not using and using primary constructor syntax:<br>
+The primary constructor syntax is a feature supposedly introduced in C# 9.0 that provides a concise way to declare immutable types, like records that was also introduced in C# 9.0. 
+
+The properties of the class are initialized in the constructor without needing to declare them explicitly. <br>
+Examples of not using and using primary constructor syntax:
+
 ```C#
 //prior to C# 9.0
 public class Person()
@@ -990,8 +1017,8 @@ public record Person(string Name, int Age);
 ### What is the meaning of the `params` keyword? Where would you use it?
 
 In C#, params is a keyword which is used to specify a parameter that takes variable number of arguments.
-It is useful when we don't know the number of arguments prior. Only one params keyword is allowed and no
-additional parameter is permitted after params keyword in a function declaration. For example: <br>
+It is useful when we don't know the number of arguments prior. Only one params keyword is allowed and no additional parameter is permitted after params keyword in a function declaration. For example: 
+
 ```C#
 public int TotalMarks(params int[] list)  
 {  
@@ -1021,11 +1048,12 @@ var ordered = numbers.OrderBy(x => x);
 ```
 <br>
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What is the difference between a jagged array and a multidimensional array?
 
 In a `multidimensional array`, each element in each dimension has the same, fixed size as the other elements in that dimension.<br>
 In a `jagged array`, which is an array of arrays, each inner array can be of a different size. Examples:
-<br>
 
 ```C#
 public class ArrayHolder
@@ -1045,12 +1073,13 @@ public class ArrayHolder
 ```
 <br>
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ## Type system
 
 ### What are `primitive types` in C#? Give some examples.
 
-Primitive types are` int, object, short, char, float, double, char and bool`. These types are used to build other
-data types.
+Primitive types are` int, object, short, char, float, double, char and bool`. These types are used to build other data types.
 <br>
 
 ### What is the difference between `value types` and `reference types`?
@@ -1066,9 +1095,9 @@ types are stored on the stack. Value types: integral numeric types, floating-poi
 
 ### What is a `class` in C#?
 
-A class is a `data structure` that may contain data members `(constants and fields)`, function members `(methods,
-properties, events, indexers, operators, instance constructors, finalizers and static constructors)` and
-nested types. Class types support `inheritance`, a mechanism whereby a derived class can extend and specialize
+A class is a `data structure` that may contain data members `(constants and fields)`, function members `(methods, properties, events, indexers, operators, instance constructors, finalizers and static constructors)` and nested types. 
+
+Class types support `inheritance`, a mechanism whereby a derived class can extend and specialize
 a base class. A class is also often referred to as a blueprint for an object where the variables and methods
 of an object are defined.
 <br>
@@ -1108,14 +1137,12 @@ and the backing field is private, then they are equivalent.
 ### What is an `enum` in C#?
 
 Enum is a special class that represents a group of constants. By default the first item in an enum has the
-value of 0. Enums should be used when there are values that aren't going to change. Enums provide an easy
-way to assign specific values to variables, not letting to set a value outside of the defined ones.
+value of 0. Enums should be used when there are values that aren't going to change. Enums provide an easy way to assign specific values to variables, not letting to set a value outside of the defined ones.
 <br>
 
 ### Explain the difference between a `class` and a `struct`.
 
-In summary, the main differences between classes and structures in C# are inheritance (class can, struct cannot),
-reference type (class) vs value type (struct), default constructor, initialization, and size/performance (struct smaller, generally faster).
+In summary, the main differences between classes and structures in C# are inheritance (class can, struct cannot), reference type (class) vs value type (struct), default constructor, initialization, and size/performance (struct smaller, generally faster).
 Classes are usually used for larger, more complex objects, while structures are used for smaller,
 simpler objects that are used frequently and need to be passed around quickly. However, both classes and
 structures have their own strengths and weaknesses, and the choice between them ultimately depends
@@ -1139,17 +1166,13 @@ a set of data.<br>
 ### What are `interfaces`? Why should we use them?
 
 An interfaces defines a contract. Any class or struct that implements the interface must implement all
-the members defined in the interfaces. By using interfaces, certain behavior can be enforced for classes
-that implement them without the need for inheritance. Classes may implement multiple interfaces.<br>
-It is good practice to make classes dependent of interfaces rather than implementations of interfaces,
-so that the actual implementation may be changed without changing that class. In this regard interfaces
-make easier to conform to both the Open/Close and the encapsulation principles.
+the members defined in the interfaces. By using interfaces, certain behaviour can be enforced for classes that implement them without the need for inheritance. Classes may implement multiple interfaces. It is good practice to make classes dependent of interfaces rather than implementations of interfaces, so that the actual implementation may be changed without changing that class. 
+
+In this regard interfaces make easier to conform to both the Open/Close and the encapsulation principles.
 
 ### What is `inheritance`?
 
-Inheritance is a process in which one object acquires all the properties and behaviors of its parent object
-automatically. The child class *can* reuse, extend or modify the attributes and behavior inherited. A class
-that inherits from another class is called a **derived class**, the class from which other classes inherit
+Inheritance is a process in which one object acquires all the properties and behaviors of its parent object automatically. The child class *can* reuse, extend or modify the attributes and behaviour inherited. A class that inherits from another class is called a **derived class**, the class from which other classes inherit
 is called **base class**.
 
 ### Is `multiple inheritance allowed` in C#?
@@ -1218,8 +1241,9 @@ derived class. A non-virtual method cannot be overridden.
 
 ### What is _`overloading`_ in C#?
 
-Overloading refers to method overloading, which allows us to have methods with the same name, but a different
-method signature. A signature is the number of, the order of and the types of arguments that the method takes.<br>
+Overloading refers to method overloading, which allows us to have methods with the same name, but a different method signature. 
+
+A signature is the number of, the order of and the types of arguments that the method takes.<br>
 This way we can have methods with the same name that can take different types of arguments and still
 perform a similar method on them.
 <br>
@@ -1234,8 +1258,9 @@ question mark `?` after the type name: `bool? myBool`. `myBool` can have the val
 ### What is the `IDisposable` interface used for?
 
 The primary use of the `IDisposable` interface is to release unmanaged resources. Then the Garbage Collector 
-releases the memory allocated to that object when it is no longer used. There are two ways to indicate that the
-object is no longer used. One is to use a `using` statement, the other is invoking the IDisposable.Dispose
+releases the memory allocated to that object when it is no longer used. There are two ways to indicate that the object is no longer used. 
+
+One is to use a `using` statement, the other is invoking the Disposable.Dispose
 method.
 <br>
 
@@ -1264,8 +1289,7 @@ using (StreamReader reader = File.OpenText("numbers.txt"))
 
 ### What is the difference between a using block and a using statement?
 
-The `using` statement ensures the correct use of an IDisposable instance. See example above. When the control
-leaves the block of the using statement, an acquired IDisposable instance is disposed. <br>
+The `using` statement ensures the correct use of an IDisposable instance. See example above. When the control leaves the block of the using statement, an acquired IDisposable instance is disposed. <br>
 It's also possible to use `using declaration` that doesn't require braces:
 
 ```C#
@@ -1314,10 +1338,12 @@ Also see in the answer below.
 ### What is a `delegate`?
 
 A delegate is a form of type-safe function pointer used by the Common Language
-Infrastructure (CLI). They specify a method and (optionally) an object to call the method on. They are used to
-implement callbacks and event listeners. A delegate object encapsulates a reference to a method.<br>
+Infrastructure (CLI). They specify a method and (optionally) an object to call the method on. They are used to implement callbacks and event listeners. 
+
+A delegate object encapsulates a reference to a method.<br>
 In praxis it's possible to declare a function and then assign it to a variable then pass it around as any other
 type. An example:
+
 ```C#
 private int Square(int x)
 {
@@ -1334,6 +1360,8 @@ int squareOfTwo = square(2);
 ### Describe the `Func<TResult>` delegate.
 
 Encapsulates a method that has no parameters and returns a value of the type specified by the TResult parameter.
+
+<div style="page-break-after: always; break-after: page;"></div>
 
 ### Describe the `Action` delegate.
 
@@ -1372,8 +1400,9 @@ static void Main(string[] args)
 
 ### What does the `abstract` keyword mean in C#? 
 
-The abstract keyword enables to create classes and class members that are incomplete and must be implemented
-in a derived class. The abstract modifier indicates that the thing being modified has a missing or
+The abstract keyword enables to create classes and class members that are incomplete and must be implemented in a derived class. 
+
+The abstract modifier indicates that the thing being modified has a missing or
 incomplete implementation. The abstract modifier can be used with classes, methods, properties, indexers,
 and events.
 
@@ -1381,8 +1410,9 @@ and events.
 
 ### What is an `abstract` class?
 
-The abstract modifier in a class declaration indicates that a class is intended only
-to be a base class of other classes, not instantiated on its own. Members marked as abstract must be
+The abstract modifier in a class declaration indicates that a class is intended only to be a base class of other classes, not instantiated on its own. 
+
+Members marked as abstract must be
 implemented by non-abstract classes that derive from the abstract class.
 <br>
 
@@ -1408,8 +1438,7 @@ Inheritance: "is a" type of relationship. A car "is a" vehicle, a person "is a" 
 
 ### What is a `model class`?
 
-Model classes are a fundamental part of the Model-View-Controller (MVC) architecture. They are used to define
-data structure, behavior and interactions of a modeled entity in a software ssytem.
+Model classes are a fundamental part of the Model-View-Controller (MVC) architecture. They are used to define data structure, behaviour and interactions of a modelled entity in a software system.
 
 ### What is a `service class`?
 
@@ -1426,35 +1455,32 @@ core functionalities can be extended to other entities without altering the init
 
 ### Explain the `Liskov Substitution Principle`.
 
-The Liskov substitution principle implies that when an instance of a class is passed/extended to another class,
-the inheriting class should have a use case for all the properties and behavior of the inherited class. <br>
+The Liskov substitution principle implies that when an instance of a class is passed/extended to another class, the inheriting class should have a use case for all the properties and behavior of the inherited class. <br>
 
 When a class is extended, if some of the properties of the initial class are not useful for the new class,
 the Liskov substitution principle is violated. This means that inheritance should not happen here. <br>
 
-`Easier explained`: Replacing the parent class with its child class in the code
-should be possible without breaking the code.
+`Easier explained`: Replacing the parent class with its child class in the code should be possible without breaking the code.
 <br>
 
 ### Explain the `Dependency Inversion Principle`.
 
-High-level modules should not import anything from low-level modules.  Both should depend on abstractions
-(e.g., interfaces). Abstractions should not depend on details. Details (concrete implementations)
-should depend on abstractions.
+High-level modules should not import anything from low-level modules.  Both should depend on abstractions (e.g., interfaces).
+
+Abstractions should not depend on details. Details (concrete implementations) should depend on abstractions.
 <br>
 
-### What do we mean by the `Gang of Four (GoF) Design Patterns`? Can you name some of these patterns?
+<div style="page-break-after: always; break-after: page;"></div>
 
-Design Patterns is a book by the following four people: Erich Gamma, Richar Helm, Ralph Johnson, John Vlissides. <br>
-They collected 23 software design patterns into this book. The patterns can be groped into 3 categories:<br>
+### What do we mean by the `Gang of Four (GoF) Design Patterns`? 
+Design Patterns is a book by the following four people: Erich Gamma, Richar Helm, Ralph Johnson, John Vlissides.  They collected 23 software design patterns into this book. They can be groped into 3 categories:
+
 - `Creational patterns`:
   - Abstract factory: groups object factories that have a common theme.
   - Builder constructs: complex objects by separating construction and representation.
   - **Factory method:** creates objects without specifying the exact class to create.
   - **Prototype:** creates objects by cloning an existing object.
   - **Singleton:** restricts object creation for a class to only one instance.
-<br>
-<br>
 - `Structural`:
   - Adapter: allows classes with incompatible interfaces to work together by wrapping its own interface around that of an already existing class.
   - Bridge: decouples an abstraction from its implementation so that the two can vary independently.
@@ -1463,8 +1489,6 @@ They collected 23 software design patterns into this book. The patterns can be g
   - Facade: provides a simplified interface to a large body of code.
   - Flyweight: reduces the cost of creating and manipulating a large number of similar objects.
   - Proxy: provides a placeholder for another object to control access, reduce cost, and reduce complexity.
-<br>
-<br>
 - `Behavioral`
   - Chain of responsibility: delegates commands to a chain of processing objects.
   - Command: creates objects that encapsulate actions and parameters.
@@ -1476,20 +1500,20 @@ They collected 23 software design patterns into this book. The patterns can be g
   - State: allows an object to alter its behavior when its internal state changes.
   - Strategy: allows one of a family of algorithms to be selected on-the-fly at runtime.
   - Template: method defines the skeleton of an algorithm as an abstract class, allowing its subclasses to provide concrete behavior.
-  - Visitor: separates an algorithm from an object structure by moving the hierarchy of methods into one object.
 
-<br>
+<div style="page-break-after: always; break-after: page;"></div>
 
 ### What are the `risks associated with using the GoF design patterns`?
 
-The reason these patterns were invented was in many cases related to the deficiencies of programming languages
-at that time. As programming languages, and computational capacity have evolved, some of the design pattern
+The reason these patterns were invented was in many cases related to the deficiencies of programming languages at that time.
+
+ As programming languages, and computational capacity have evolved, some of the design pattern
 were used less and less frequently, if not even became completely obsolete.<br>
 
-no design pattern will ever replace geniune thinking and problem solving. Many beginner developers,
+No design pattern will ever replace genuine thinking and problem solving. Many beginner developers,
 armed with the knowledge of design patterns will go and try to fit a pattern, or sometimes even
 multiple patterns to every problem they face. An important thing to note is that every pattern
-introduces additional complexity to the application, so there is a cost associated with their usege.
+introduces additional complexity to the application, so there is a cost associated with their usage.
 As such, there should always be a cost-benefit analysis attached to the decision of introducing a pattern.<br>
 
 This is the key to design patterns: to know when to use or not to use them. It's very easy to
@@ -1538,13 +1562,14 @@ CRUD apps are the user interface that we use to interact with databases through 
 It is a specific type of application that supports the four basic operations: Create, read, update, delete.
 A CRUD interface should be able to handle these operations.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 
 ## Unit testing
 ### Why is `unit testing` a good practice?
 
 Because while writing the code, it is hard to think about all the edge cases, but while writing the test
-the approach should be to break the code and that is most easily done with edge cases. Breaking and fixing the
-code makes the developer more confident in the correct functioning of the code while making the code more robust. <br>
+the approach should be to break the code and that is most easily done with edge cases. Breaking and fixing the code makes the developer more confident in the correct functioning of the code while making the code more robust. <br>
 After the code is ready, good unit tests are there to help refactor the code and provide feedback on changes.
 <br>
 
@@ -1571,6 +1596,8 @@ The purpose of mocking is to isolate and focus on the code being tested and not 
 or state of external dependencies.
 <br>
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What is the difference between _`mocking`_, _`stubbing`_ and _`faking`_?
 **Mocking**:<br>
 `Definition`: Mocking is the process of creating simulated objects (mock objects) that replicate the behavior of real objects or components. It involves imitating the behavior of specific parts of the code to isolate and test their interactions. <br>
@@ -1588,9 +1615,9 @@ or state of external dependencies.
 
 ### What are `relational databases`? What are their `advantages` and `disadvantages`?
 
-Relational databases are databases that make use of relational mathematics. A relational database is a collection of
-information that organizes data in predefined relationships where data is stored in one of more tables ("relations")
-of columns and rows. Relationships are logical connection between different tables.
+Relational databases are databases that make use of relational mathematics. A relational database is a collection of information that organizes data in predefined relationships where data is stored in one of more tables ("relations") of columns and rows. 
+
+Relationships are logical connection between different tables.
 
 A relational database (RDB) is a way of structuring information in tables, rows, and columns.
 An RDB has the ability to establish links — or relationships – between information by joining tables,
@@ -1650,11 +1677,9 @@ Cloud: Amazon Web Services, Oracle, Google, IBM...
 
 ### What are `SQL data types`? Are there any differences in data types between different SQL databases?
 
-SQL data types define the type of data that can be stored in a database column. Different SQL data types are
-used to represent different types of data.<br>
+SQL data types define the type of data that can be stored in a database column. Different SQL data types are used to represent different types of data.<br>
 
-Data types can have different names in different databases. Even with the same name, some details might be
-different. Some databases have their own specific data types.
+Data types can have different names in different databases. Even with the same name, some details might be different. Some databases have their own specific data types.
 <br>
 
 ### What are _`constraints`_ in SQL?
@@ -1666,8 +1691,7 @@ a table. Examples: NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, CHECK (+ conditio
 ### How can we `program different SQL databases in C#`?
 
 All or most SQL databases use similar logic. They require a connection string, then a connection object.
-Then a connection is opened and a command object is created and used to execute SQL statements against a
-database. Then the result needs to be processed.
+Then a connection is opened and a command object is created and used to execute SQL statements against a database. Then the result needs to be processed.
 <br>
 
 ### Which SQL statement is used to `create tables`? Describe the syntax briefly.
@@ -1721,6 +1745,8 @@ With one of the `JOIN statements (LEFT, RIGHT, INNER, FULL OUTER)`.<br>
 It should be done when the required needs to be combined from multiple tables.<br>
 The common columns between these tables should be identified and used to perform the join.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 # Advanced C#
 
 ## Web development
@@ -1738,6 +1764,9 @@ REST stands for **Representational State Transfer.** It is an architectural styl
     - HEAD: Retrieve only the headers of a resource, without the actual data. It is often used for checking if a resource has been modified.
 ###  How do you identify `unique resources on the web`?
 Unique resources on the web are typically identified using `Uniform Resource Locators (URLs)`, which are also known as `web addresses`. A URL is a **string of characters that provides a reference to a specific resource on the internet**. URLs are used to identify and access various types of resources, including web pages, images, documents, and web services. A URL consists of several components that collectively specify the location and identity of the resource.
+
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### What are the `main frontend languages` on the web? Describe them briefly.
 
 1. **HTML (Hypertext Markup Language):**
@@ -1767,14 +1796,19 @@ Unique resources on the web are typically identified using `Uniform Resource Loc
 
 6. **Vue.js:**
    - Vue.js is another JavaScript framework for building user interfaces.
+   
    - It is known for its simplicity and flexibility and offers a progressive framework that can be incrementally adopted in existing projects.
-   - Vue.js is gaining popularity for web development.
 
+   - Vue.js is gaining popularity for web development.
+   
+     <div style="page-break-after: always; break-after: page;"></div>
+   
 7. **Angular:**
+   
    - Angular is a comprehensive TypeScript-based framework for building web applications.
    - It provides a full-featured platform for building large-scale, enterprise-level applications.
    - Angular has a strong focus on modularity and testability.
-
+   
 8. **Sass and Less:**
    - Sass (Syntactically Awesome Style Sheets) and Less are CSS preprocessors.
    - They extend the capabilities of CSS by adding features like variables, nesting, and functions, making it easier to write and maintain complex styles.
@@ -1789,7 +1823,10 @@ Unique resources on the web are typically identified using `Uniform Resource Loc
 
 ###  What is JSON?
 JSON stands for **JavaScript Object Notation**. It is a `lightweight data interchange format` that is **easy for humans to read and write** and **easy for machines to parse and generate**. JSON is often used to **transmit data between a server and a web application**, as well as to **store configuration settings and data** for various applications.
+<div style="page-break-after: always; break-after: page;"></div>
+
 ###  What `operations` are `fundamental` to most `data-driven applications`?
+
 `Data-driven applications` typically involve a range of fundamental operations to effectively **collect, process, analyze, and utilize data**. These operations can vary depending on the specific application and its goals, but some common fundamental operations include:
 
 1. **Data Collection**:
@@ -1842,6 +1879,8 @@ JSON stands for **JavaScript Object Notation**. It is a `lightweight data interc
 ### Which web protocol would you use if you need a `bi-directional communication channel`?
 If you need a `bi-directional communication channel` for web applications, one of the commonly used web protocols is **WebSocket**. **WebSocket** is designed to **provide full-duplex, bidirectional communication** between a `client` (usually a web browser) and a `server` over a single, long-lived connection. <br>Unlike the traditional request-response cycle of HTTP, WebSocket allows for real-time, low-latency, and continuous data exchange between the client and server.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ## ASP.NET Core
 
 ### Describe the different `application types` available in `ASP.NET Core`.
@@ -1870,12 +1909,16 @@ If you need a `bi-directional communication channel` for web applications, one o
 
 6. **GraphQL:**
    - ASP.NET Core can be used to build GraphQL APIs, which provide a more flexible and efficient alternative to REST for querying and manipulating data.
+   
    - It allows clients to request exactly the data they need, reducing over-fetching and under-fetching of data.
-
+   
+     <div style="page-break-after: always; break-after: page;"></div>
+   
 7. **Razor Class Libraries:**
+   
    - Razor Class Libraries (RCLs) are reusable libraries that contain Razor views, pages, and components.
    - They can be shared across multiple ASP.NET Core applications, making it easier to encapsulate UI components and reuse them.
-
+   
 8. **Console Applications:**
    - ASP.NET Core also supports building command-line applications, making it suitable for creating background tasks, utilities, or automation scripts.
 
@@ -1890,7 +1933,10 @@ If you need a `bi-directional communication channel` for web applications, one o
 ### Which `application type` should you choose if you want to implement a `REST API`?
 If you want to implement a REST API in ASP.NET Core, you should choose the **Web API** application type. **ASP.NET Core Web API** is specifically designed for building `RESTful` web services and APIs.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ###  Explain the concept of `middleware` in ASP.NET Core and give an `example of how you can use it` in a web application.
+
 In ASP.NET Core, `middleware` is a **key component of the request processing pipeline**. `Middleware components` are responsible for **processing** and potentially **modifying HTTP requests and responses** as they flow through the pipeline.<br> They provide a way to add various behaviors and functionality to your web application, such as authentication, routing, logging, error handling, and more, in a modular and configurable manner.
 
 `Middleware components` are executed in a specific order, from the first middleware in the pipeline to the last. Each middleware component can choose to pass the request further down the pipeline to the next middleware, terminate the pipeline, or short-circuit the request/response process.
@@ -1936,6 +1982,8 @@ _In this example_:
 In the context of ASP.NET Core, a `Controller class` is a **fundamental component** used to **handle incoming HTTP requests and generate responses**. Controllers play a **central role** in the `Model-View-Controller (MVC)` architectural pattern and are **crucial** for building web applications.<br> Its functions are: `Request Handling`, `Action Methods`, `Data Processing`, `Response Generation`, `View Rendering`
 ### What is a `Controller Action Method`?
 A controller action method is a C# method within a controller class that **handles a specific HTTP request and returns a response**.
+<div style="page-break-after: always; break-after: page;"></div>
+
 ### How do you configure `routing` in ASP.NET Core, and what role does it play in `handling incoming requests`?
 
 Configuring Routing:
@@ -1958,19 +2006,13 @@ Role of Routing in Handling Requests:
 1. **Request Routing**:
    - Routing plays a crucial role in determining which controller and action method should be invoked to handle an incoming HTTP request.
    - When a client makes a request to a specific URL, ASP.NET Core uses the routing configuration to match the request to a route template and identify the associated controller and action.
-
 2. **Parameter Extraction**:
    - Route templates can contain placeholders for parameters, such as `{id}`. When a URL matches a route template, ASP.NET Core extracts values from the URL and maps them to the corresponding action method parameters.
-
 3. **Controller Selection**:
    - Routing determines which controller is responsible for handling a request based on the URL and route configuration. For example, if a URL matches the route for the "Products" controller, the "Products" controller is selected.
-
 4. **Action Method Invocation**:
    - Routing also selects the appropriate action method within the chosen controller to handle the request. This is based on the HTTP verb (GET, POST, etc.) and the action method name.
-
-5. **Custom Routes**:
-   - Custom route attributes applied to controllers and action methods allow for more fine-grained control over routing, enabling you to create SEO-friendly URLs and handle complex routing scenarios.
-
+5. **Custom Routes**: Custom route attributes applied to controllers and action methods allow for more fine-grained control over routing, enabling you to create SEO-friendly URLs and handle complex routing scenarios.
 6. **Default Routes**:
    - Default routes provide a fallback mechanism for handling requests when no specific route template matches. They ensure that requests are directed to a default controller and action.
 
@@ -1989,6 +2031,7 @@ A controller should contain as little behavior as possible. It should instantiat
 ###  What is `integration testing`, and how does it _differ_ from `unit testing`?
 `Integration testing` is a type of `software testing` that **focuses on evaluating the interactions** and **integration points between different components**, **modules**, or **services** within a software system. It aims to **ensure that these components work correctly together** when combined to form a larger, integrated application.
 
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## C# features
 
@@ -2005,6 +2048,7 @@ Concurrency can be achieved in C# through features like **multi-threading, async
 ###  Why is it considered `good practice` to implement `async controller methods`?
  Implementing async controller methods in ASP.NET Core **improves application responsiveness** and **scalability** by **avoiding thread blocking during I/O-bound operations**.
 
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## Design patterns
 
@@ -2016,6 +2060,7 @@ The `Unit of Work pattern` is used to **maintain data consistency** and **transa
 ###  What is `Clean Architecture`?
 `Clean Architecture` is a **software architectural pattern** that emphasizes separation of concerns, maintainability, and testability by **structuring the application into distinct layers with clear dependencies and responsibilities**.
 
+<div style="page-break-after: always; break-after: page;"></div>
 
 ## Entity Relationships, ORM, EF
 
@@ -2038,7 +2083,10 @@ The `Unit of Work pattern` is used to **maintain data consistency** and **transa
 
 - `Maintainability and Code Clarity`: For better code maintainability and clarity, especially when dealing with object-oriented models rather than direct SQL statements, making the code more readable and easier to maintain.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ###  Explain the concept of `cardinality` in entity relationships. How does it impact the design and mapping of entities?
+
 `Cardinality` in entity relationships **defines the number of instances** of one entity that can be associated with the number of instances of another entity.
 - One-to-One (1:1): Each instance in one entity is related to exactly one instance in another entity.
 - One-to-Many (1:N): Each instance in one entity can be related to multiple instances in another entity.
@@ -2068,6 +2116,7 @@ Here are the major steps in working with EF Core:
    - Integrate` Entity Framework Core` into your `CI/CD pipeline`.
 
 
+
 ## DevOps
 
 ###  What is `Docker` and `Docker Compose`?
@@ -2082,7 +2131,10 @@ A `Dockerfile` is a **text file used to define a set of instructions for buildin
 
 ###  What is `CI/CD (Continuous Integration/Continuous Deployment)`, and what are its benefits?
 `CI/CD` is a set of **practices and tools** for **automating the building, testing, and deployment** of applications. It **improves software quality and delivery speed**.
+<div style="page-break-after: always; break-after: page;"></div>
+
 ###  Describe an example `CI/CD pipeline` for an ASP.NET Core.
+
 1. **Source Code Repository**:
    - The pipeline begins with a source code repository, such as `Git (GitHub, GitLab, Bitbucket)`, where developers push code changes.
 
@@ -2106,8 +2158,11 @@ A `Dockerfile` is a **text file used to define a set of instructions for buildin
 
 4. **Monitoring and Observability**:
    - Application performance, logs, and metrics are monitored in the production environment.
+   
    - Tools like Prometheus, Grafana, or Application Insights may be used for monitoring.
-
+   
+     <div style="page-break-after: always; break-after: page;"></div>
+   
 5. **Automated Rollback (if necessary)**:
    - If issues are detected in the production environment, automated rollback procedures can revert to the previous stable version.
 
@@ -2130,6 +2185,8 @@ A `Dockerfile` is a **text file used to define a set of instructions for buildin
 11. **Scalability**:
     - Plan for scalability in terms of infrastructure, automation, and deployment to accommodate increased workloads and growing user bases.
 
+<div style="page-break-after: always; break-after: page;"></div>
+
 ## SQL
 
 ###  What are `aggregate functions`? Could you give a few examples?
@@ -2138,14 +2195,16 @@ Aggregate functions in SQL are used to perform calculations on sets of values. E
 The `GROUP BY` clause in `SQL` is used to **group rows that have the same values in specified columns**. It is typically used in combination with aggregate functions.
 ###  When would you use `HAVING`?
 The `HAVING` clause in `SQL` is used to **filter the results of a** `GROUP BY` **query** based on the results of aggregate functions applied to groups of rows. You would use the `HAVING` clause when you want to **filter the grouped data based on a condition that involves aggregated values**.
+<div style="page-break-after: always; break-after: page;"></div>
+
 ###  What does a `LEFT OUTER JOIN` do and how does it differ from an `INNER JOIN`? Give an example for a result table for each `JOIN` type.
 
 **`LEFT OUTER JOIN`**:
 
-- A `LEFT OUTER JOIN`, often simply referred to as a `LEFT JOIN`, **returns all the rows from the left table and the matched rows from the right table**.
-- If there is no match in the right table, NULL values are used for columns from the right table in the result.
+- A `LEFT OUTER JOIN`, often simply referred to as a `LEFT JOIN`, **returns all the rows from the left table and the matched rows from the right table**. If there is no match in the right table, NULL values are used for columns from the right table in the result.
 
-**Example**:<br>
+**Example**:
+
 Using the same `Orders` and `Customers` tables, a `LEFT JOIN` would return all the rows from the `Orders` table and any matching rows from the `Customers` table. If there is no matching customer for an order, the `CustomerName` column will contain NULL.
 
 ```sql
@@ -2166,8 +2225,7 @@ OrderID | CustomerName
 ```
 **`INNER JOIN`**:
 
-- An `INNER JOIN` **returns only the rows where there is a match in both tables**.
-- If there is no match in one of the tables, the row is not included in the result.
+- An `INNER JOIN` **returns only the rows where there is a match in both tables**. If there is no match in one of the tables, the row is not included in the result.
 
 **Example**:
 Suppose we have two tables: `Orders` and `Customers`. The `CustomerID` in the `Orders` table is related to the `CustomerID` in the `Customers` table. An `INNER JOIN` between these tables would return only the rows where there is a match in both tables.
@@ -2222,5 +2280,3 @@ A `database index` is a database structure that **enhances the speed of data ret
 `Database normalization` is a database design technique used to **organize data in a relational database management system** `(RDBMS)` efficiently and **reduce data redundancy while preserving data integrity**. <br>The process of normalization involves **breaking down a complex database into simpler, more manageable** tables and defining relationships between them.<br> The primary goal of normalization is to **eliminate data anomalies and ensure** that data is stored consistently and without redundancy.
 ###  What is `SQL injection`?
 `SQL injection` is a malicious technique that **attackers use to exploit vulnerabilities in web applications and gain unauthorized access to a database**. <br>It occurs **when an application allows users to enter unsanitized input**, which is then used in `SQL` queries **without proper validation or escaping**. <br>`SQL injection` can lead to a wide range of **security issues**, including **unauthorized data access, data manipulation, and even remote code execution**.
-
-
